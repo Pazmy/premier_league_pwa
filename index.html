@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Football</title>
+    <meta name="description" content="Football" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/materialize.min.css" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="/assets/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="/assets/css/solid.min.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icons/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icons/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <!-- ios support -->
+    <link rel="apple-touch-icon" href="/images/icons/icon-192x192.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#212121" />
+
+    <meta name="theme-color" content="#212121 " />
+  </head>
+  <body>
+    <!-- Navigasi -->
+    <nav class="grey darken-4" role="navigation">
+      <div class="nav-wrapper container">
+        <a href="./index.html" class="brand-logo" id="logo-container"
+          >Football</a
+        >
+        <a href="#" class="sidenav-trigger" data-target="nav-mobile">&#9776;</a>
+
+        <ul class="topnav right hide-on-med-and-down"></ul>
+        <ul class="sidenav" id="nav-mobile"></ul>
+      </div>
+    </nav>
+    <!-- Akhir Navigasi -->
+
+    <div class="container" id="body-content"></div>
+    <script src="js/register.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/nav.js"></script>
+
+    <script src="js/api.js"></script>
+    <script src="js/idb.js"></script>
+    <script src="js/db.js"></script>
+
+    <script>
+      // REQUEST API UNTUK PERTAMA KALI
+      document.addEventListener("DOMContentLoaded", async function () {
+        await register();
+        getStandings();
+        var urlParams = new URLSearchParams(window.location.search).get(
+          "match"
+        );
+        if (urlParams) {
+          getMatch();
+        }
+      });
+    </script>
+  </body>
+</html>
